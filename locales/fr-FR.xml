@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Derived from https://github.com/citation-style-language/locales/blob/master/locales-fr-FR.xml -->
 <locale xmlns="http://purl.org/net/xbiblio/csl" version="1.0" xml:lang="fr-FR">
   <info>
     <translator>
-      <name>Grégoire Colly</name>
+      <name>Sven Hanssen</name>
+      <email>sven@scribbr.com</email>
     </translator>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
-    <updated>2012-07-04T23:31:02+00:00</updated>
+    <updated>2021-10-29T12:00:000+00:00</updated>
   </info>
-  <style-options punctuation-in-quote="false" limit-day-ordinals-to-day-1="true"/>
+  <style-options punctuation-in-quote="false" limit-day-ordinals-to-day-1="true" leading-noise-words="la,le,un,une,les,des,l',a,an,the"/>
   <date form="text">
     <date-part name="day" suffix=" "/>
     <date-part name="month" suffix=" "/>
@@ -39,7 +41,7 @@
     <term name="forthcoming">à paraître</term>
     <term name="from">à l'adresse</term>
     <term name="ibid">ibid.</term>
-    <term name="in">in</term>
+    <term name="in">dans</term>
     <term name="in press">sous presse</term>
     <term name="internet">Internet</term>
     <term name="interview">entretien</term>
@@ -75,7 +77,7 @@
     <term name="ordinal">ᵉ</term>
     <term name="ordinal-01" gender-form="feminine" match="whole-number">ʳᵉ</term>
     <term name="ordinal-01" gender-form="masculine" match="whole-number">ᵉʳ</term>
-    
+
     <!-- LONG ORDINALS -->
     <term name="long-ordinal-01">premier</term>
     <term name="long-ordinal-02">deuxième</term>
