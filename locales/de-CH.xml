@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Derived from https://github.com/citation-style-language/locales/blob/master/locales-de-CH.xml -->
 <locale xmlns="http://purl.org/net/xbiblio/csl" version="1.0" xml:lang="de-CH">
   <info>
     <translator>
-      <name>Till A. Heilmann</name>
-    </translator>
-    <translator>
-      <name>Sylvester Keil</name>
-    </translator>
-    <translator>
-      <name>jakov</name>
-    </translator>
-    <translator>
-      <name>Sebastian Karcher</name>
+      <name>Sven Hanssen</name>
+      <email>sven@scribbr.com</email>
     </translator>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
-    <updated>2012-07-04T23:31:02+00:00</updated>
+    <updated>2021-10-29T12:00:000+00:00</updated>
   </info>
-  <style-options punctuation-in-quote="false"/>
+  <style-options punctuation-in-quote="false" leading-noise-words="der,die,das,ein,eine,a,an,the"/>
   <date form="text">
     <date-part name="day" form="ordinal" suffix=" "/>
     <date-part name="month" suffix=" "/>
@@ -54,7 +47,7 @@
     <term name="interview">Interview</term>
     <term name="letter">Brief</term>
     <term name="no date">ohne Datum</term>
-    <term name="no date" form="short">o.&#160;J.</term>
+    <term name="no date" form="short">o.&#160;D.</term>
     <term name="online">online</term>
     <term name="presented at">gehalten auf der</term>
     <term name="reference">
@@ -66,7 +59,7 @@
       <multiple>Ref.</multiple>
     </term>
     <term name="retrieved">abgerufen</term>
-    <term name="scale">Massstab</term>
+    <term name="scale">Maßstab</term>
     <term name="version">Version</term>
 
     <!-- ANNO DOMINI; BEFORE CHRIST -->
@@ -74,10 +67,10 @@
     <term name="bc">&#160;v.&#160;Chr.</term>
 
     <!-- PUNCTUATION -->
-    <term name="open-quote">«</term>
-    <term name="close-quote">»</term>
-    <term name="open-inner-quote">‹</term>
-    <term name="close-inner-quote">›</term>
+    <term name="open-quote">„</term>
+    <term name="close-quote">“</term>
+    <term name="open-inner-quote">‚</term>
+    <term name="close-inner-quote">‘</term>
     <term name="page-range-delimiter">–</term>
 
     <!-- ORDINALS -->
@@ -172,8 +165,8 @@
     <term name="figure" form="short">Abb.</term>
     <term name="folio" form="short">Fol.</term>
     <term name="issue" form="short">Nr.</term>
-    <term name="line" form="short">l.</term>
-    <term name="note" form="short">n.</term>
+    <term name="line" form="short">Z.</term>
+    <term name="note" form="short">N.</term>
     <term name="opus" form="short">op.</term>
     <term name="page" form="short">
       <single>S.</single>
@@ -196,7 +189,7 @@
     </term>
     <term name="volume" form="short">
       <single>Bd.</single>
-      <multiple>Bd.</multiple>
+      <multiple>Bde.</multiple>
     </term>
 
     <!-- SYMBOL LOCATOR FORMS -->
@@ -217,6 +210,10 @@
     <term name="editor">
       <single>Herausgeber</single>
       <multiple>Herausgeber</multiple>
+    </term>
+    <term name="collection-editor">
+      <single>Reihenherausgeber</single>
+      <multiple>Reihenherausgeber</multiple>
     </term>
     <term name="editorial-director">
       <single>Herausgeber</single>
@@ -244,6 +241,10 @@
       <single>Hrsg.</single>
       <multiple>Hrsg.</multiple>
     </term>
+    <term name="collection-editor" form="short">
+      <single>Hrsg.</single>
+      <multiple>Hrsg.</multiple>
+    </term>
     <term name="editorial-director" form="short">
       <single>Hrsg.</single>
       <multiple>Hrsg.</multiple>
@@ -265,6 +266,7 @@
     <term name="container-author" form="verb">von</term>
     <term name="director" form="verb">Regie von</term>
     <term name="editor" form="verb">herausgegeben von</term>
+    <term name="collection-editor" form="verb">herausgegeben von</term>
     <term name="editorial-director" form="verb">herausgegeben von</term>
     <term name="illustrator" form="verb">illustriert von</term>
     <term name="interviewer" form="verb">interviewt von</term>
@@ -276,6 +278,7 @@
     <!-- SHORT VERB ROLE FORMS -->
     <term name="director" form="verb-short">Reg.</term>
     <term name="editor" form="verb-short">hg. von</term>
+    <term name="collection-editor" form="verb-short">hg. von</term>
     <term name="editorial-director" form="verb-short">hg. von</term>
     <term name="illustrator" form="verb-short">illus. von</term>
     <term name="translator" form="verb-short">übers. von</term>
