@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" page-range-format="expanded">
   <info>
-    <title>American Psychological Association 6th edition</title>
-    <title-short>APA (6th ed.)</title-short>
+    <title>American Psychological Association 6th edition (SURF)</title>
+    <title-short>APA (6th ed., SURF)</title-short>
     <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
     <author>
       <name>Sven Hanssen</name>
@@ -14,31 +14,10 @@
     <updated>2021-10-29T12:00:000+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
-  <locale xml:lang="en">
+  <locale xml:lang="nl">
     <terms>
-      <term name="editortranslator" form="short">
-        <single>ed. &amp; trans.</single>
-        <multiple>eds. &amp; trans.</multiple>
-      </term>
-      <term name="translator" form="short">trans.</term>
-      <term name="retrieved at">retrieved</term>
-    </terms>
-  </locale>
-  <locale xml:lang="es">
-    <terms>
-      <term name="from">de</term>
-      <term name="retrieved at">recuperado</term>
-    </terms>
-  </locale>
-  <locale xml:lang="de">
-    <terms>
-      <term name="retrieved at">abgerufen am</term>
-      <term name="no date" form="short">o.&#160;D.</term>
-    </terms>
-  </locale>
-  <locale xml:lang="fr">
-    <terms>
-      <term name="retrieved at">consulté le</term>
+      <term name="et-al">et al.</term>
+      <term name="retrieved at">geraadpleegd op</term>
     </terms>
   </locale>
   <macro name="container-contributors">
@@ -85,33 +64,8 @@
             <text variable="publisher"/>
             <text macro="title"/>
           </if>
-          <else-if type="graphic" variable="genre">
-            <text variable="genre" prefix="[" suffix="]" text-case="capitalize-first"/>
-          </else-if>
           <else>
             <text macro="title"/>
-          </else>
-        </choose>
-      </substitute>
-    </names>
-  </macro>
-  <macro name="author-for-sorting">
-    <names variable="author">
-      <name name-as-sort-order="all" and="symbol" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
-      <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
-      <substitute>
-        <names variable="editor"/>
-        <names variable="translator"/>
-        <choose>
-          <if type="report">
-            <text variable="publisher"/>
-            <text macro="title-for-sorting"/>
-          </if>
-          <else-if type="graphic" variable="genre">
-            <text variable="genre" prefix="[" suffix="]" text-case="capitalize-first"/>
-          </else-if>
-          <else>
-            <text macro="title-for-sorting"/>
           </else>
         </choose>
       </substitute>
@@ -202,7 +156,7 @@
           </if>
           <else>
             <choose>
-              <if type="post post-weblog webpage entry-encyclopedia graphic video" match="any">
+              <if type="post post-weblog webpage entry-encyclopedia video" match="any">
                 <group delimiter=" ">
                   <choose>
                     <if variable="accessed">
@@ -232,18 +186,7 @@
   </macro>
   <macro name="title">
     <choose>
-      <if type="treaty">
-        <group delimiter=", ">
-          <text variable="title" text-case="title"/>
-          <names variable="author">
-            <name initialize-with="." form="short" delimiter="-"/>
-          </names>
-        </group>
-      </if>
-      <else-if type="patent" variable="number" match="all">
-        <text macro="patent-number" font-style="italic"/>
-      </else-if>
-      <else-if variable="title">
+      <if type="book dataset graphic manuscript motion_picture report song speech thesis" match="any">
         <choose>
           <if variable="version" type="book" match="all">
             <!---This is a hack until we have a computer program type -->
@@ -256,73 +199,46 @@
               <text variable="genre" prefix=" [" suffix="]"/>
             </group>
           </if>
-          <else-if variable="reviewed-author reviewed-title" type="review review-book" match="any">
-            <choose>
-              <if variable="reviewed-title">
-                <choose>
-                  <if type="post post-weblog webpage video" variable="container-title" match="any">
-                    <text variable="title"/>
-                  </if>
-                  <else>
-                    <text variable="title" font-style="italic"/>
-                  </else>
-                </choose>
-              </if>
-            </choose>
-          </else-if>
-          <else-if type="post post-weblog webpage" variable="container-title" match="any">
-            <text variable="title"/>
-          </else-if>
           <else>
-            <text variable="title" font-style="italic"/>
+            <text variable="title" font-style="italic" text-case="capitalize-first"/>
           </else>
         </choose>
-      </else-if>
-      <else-if variable="interviewer" type="interview" match="any">
-        <names variable="interviewer">
-          <label form="verb-short" suffix=" " text-case="capitalize-first"/>
-          <name and="symbol" initialize-with=". " delimiter=", "/>
-        </names>
-      </else-if>
-    </choose>
-  </macro>
-  <macro name="title-for-sorting">
-    <choose>
-      <if type="treaty">
-        <group delimiter=", ">
-          <text variable="title" text-case="title"/>
-          <names variable="author">
-            <name initialize-with="." form="short" delimiter="-"/>
-          </names>
-        </group>
       </if>
-      <else-if type="patent" variable="number" match="all">
-        <text macro="patent-number"/>
-      </else-if>
-      <else-if variable="title">
+      <else-if variable="reviewed-author">
         <choose>
-          <if variable="version" type="book" match="all">
-            <!---This is a hack until we have a computer program type -->
+          <if variable="reviewed-title">
             <group delimiter=" ">
-              <text variable="title" text-case="capitalize-first" leading-noise-words="demote"/>
-              <group prefix="(" suffix=")" delimiter=" ">
-                <text term="version" text-case="capitalize-first"/>
-                <text variable="version"/>
+              <text variable="title" text-case="capitalize-first"/>
+              <group delimiter=", " prefix="[" suffix="]">
+                <text variable="reviewed-title" font-style="italic" prefix="Review of "/>
+                <names variable="reviewed-author" delimiter=", ">
+                  <label form="verb-short" suffix=" "/>
+                  <name and="symbol" initialize-with=". " delimiter=", "/>
+                </names>
               </group>
-              <text variable="genre" prefix=" [" suffix="]"/>
             </group>
           </if>
           <else>
-            <text variable="title" leading-noise-words="demote"/>
+            <!-- assume `title` is title of reviewed work -->
+            <group delimiter=", " prefix="[" suffix="]">
+              <text variable="title" font-style="italic" prefix="Review of " text-case="capitalize-first"/>
+              <names variable="reviewed-author" delimiter=", ">
+                <label form="verb-short" suffix=" "/>
+                <name and="symbol" initialize-with=". " delimiter=", "/>
+              </names>
+            </group>
           </else>
         </choose>
       </else-if>
-      <else-if variable="interviewer" type="interview" match="any">
-        <names variable="interviewer">
-          <label form="verb-short" suffix=" " text-case="capitalize-first"/>
-          <name and="symbol" initialize-with=". " delimiter=", "/>
-        </names>
+      <else-if type="patent" variable="number" match="all">
+        <text macro="patent-number" font-style="italic"/>
       </else-if>
+      <else-if type="webpage post video" match="any">
+        <text variable="title" font-style="italic" text-case="capitalize-first"/>
+      </else-if>
+      <else>
+        <text variable="title" text-case="capitalize-first"/>
+      </else>
     </choose>
   </macro>
   <macro name="title-plus-extra">
@@ -348,21 +264,15 @@
           <text macro="edition"/>
         </group>
       </if>
-      <else-if type="post post-weblog webpage graphic video" match="any">
+      <else-if type="post-weblog webpage graphic post video" match="any">
         <text variable="genre" prefix=" [" suffix="]"/>
       </else-if>
-    </choose>
-    <choose>
-      <if variable="version" match="any">
-        <choose>
-          <if type="report thesis book" match="none">
-            <group delimiter=" " prefix=" (" suffix=")">
-              <text term="version" text-case="capitalize-first"/>
-              <text variable="version"/>
-            </group>
-          </if>
-        </choose>
-      </if>
+      <else-if variable="version">
+        <group delimiter=" " prefix=" (" suffix=")">
+          <text term="version" text-case="capitalize-first"/>
+          <text variable="version"/>
+        </group>
+      </else-if>
     </choose>
     <text macro="format" prefix=" [" suffix="]"/>
   </macro>
@@ -411,10 +321,10 @@
           </choose>
         </group>
       </else-if>
-      <else-if type="post post-weblog webpage video" match="none">
+      <else-if type="post-weblog webpage graphic post video" match="none">
         <group delimiter=", ">
           <choose>
-            <if variable="event version" type="speech dataset motion_picture graphic" match="none">
+            <if variable="event version" type="speech dataset motion_picture" match="none">
               <!-- Including version is to avoid printing the programming language for computerProgram /-->
               <text variable="genre"/>
             </if>
@@ -474,34 +384,18 @@
           </date>
           <text variable="year-suffix"/>
           <choose>
-            <if type="speech report" match="any">
+            <if type="speech" match="any">
               <date variable="issued" delimiter=" ">
                 <date-part prefix=", " name="month"/>
               </date>
             </if>
-            <else-if type="graphic" variable="URL">
-              <date variable="issued">
-                <date-part prefix=", " name="month"/>
-                <date-part prefix=" " name="day"/>
-              </date>
-            </else-if>
             <else-if type="article article-magazine article-newspaper broadcast interview pamphlet personal_communication post post-weblog treaty webpage video" match="any">
               <date variable="issued">
-                <date-part prefix=", " name="month"/>
-                <date-part prefix=" " name="day"/>
+                <date-part prefix=", " name="day"/>
+                <date-part prefix=" " name="month"/>
               </date>
             </else-if>
-            <else-if type="paper-conference">
-              <choose>
-                <if variable="container-title" match="none">
-                  <date variable="issued">
-                    <date-part prefix=", " name="month"/>
-                    <date-part prefix=" " name="day"/>
-                  </date>
-                </if>
-              </choose>
-            </else-if>
-            <!-- Only year: article-journal chapter entry entry-dictionary entry-encyclopedia dataset figure graphic motion_picture manuscript map musical_score paper-conference [published] patent report review review-book song thesis -->
+            <!-- Only year: article-journal chapter entry entry-dictionary entry-encyclopedia dataset figure graphic motion_picture manuscript map musical_score paper-conference patent report review review-book song thesis -->
           </choose>
         </group>
       </else-if>
@@ -578,7 +472,7 @@
         </group>
       </if>
       <else-if variable="status">
-        <text variable="status"/>
+        <text variable="status" text-case="lowercase"/>
         <text variable="year-suffix" prefix="-"/>
       </else-if>
       <else>
@@ -636,7 +530,7 @@
   </macro>
   <macro name="locators">
     <choose>
-      <if type="article-journal article-magazine paper-conference" match="any">
+      <if type="article-journal article-magazine" match="any">
         <group prefix=", " delimiter=", ">
           <group>
             <text variable="volume" font-style="italic"/>
@@ -661,7 +555,7 @@
           <text variable="page"/>
         </group>
       </else-if>
-      <else-if type="book graphic motion_picture report song chapter entry-encyclopedia entry-dictionary" match="any">
+      <else-if type="book graphic motion_picture report song chapter paper-conference entry-encyclopedia entry-dictionary" match="any">
         <group prefix=" (" suffix=")" delimiter=", ">
           <choose>
             <if type="report" match="none">
@@ -736,7 +630,7 @@
       <if type="post-weblog webpage" match="none">
         <group>
           <choose>
-            <if type="chapter entry-encyclopedia entry-dictionary graphic" match="any">
+            <if type="chapter paper-conference entry-encyclopedia entry-dictionary" match="any">
               <text term="in" text-case="capitalize-first" suffix=" "/>
             </if>
           </choose>
@@ -751,7 +645,7 @@
   </macro>
   <macro name="container-title">
     <choose>
-      <if type="article article-journal article-magazine article-newspaper entry-dictionary" match="any">
+      <if type="article article-journal article-magazine article-newspaper" match="any">
         <text variable="container-title" font-style="italic" text-case="title"/>
       </if>
       <else-if type="bill legal_case legislation" match="none">
@@ -826,7 +720,7 @@
   </citation>
   <bibliography hanging-indent="true" et-al-min="8" et-al-use-first="6" et-al-use-last="true" entry-spacing="0" line-spacing="2">
     <sort>
-      <key macro="author-for-sorting"/>
+      <key macro="author"/>
       <key macro="issued-sort" sort="ascending"/>
       <key macro="title"/>
     </sort>
