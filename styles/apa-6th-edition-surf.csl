@@ -19,6 +19,7 @@
     <terms>
       <term name="et-al">et al.</term>
       <term name="retrieved at">geraadpleegd op</term>
+      <term name="edition" form="short">editie</term>
     </terms>
   </locale>
   <macro name="container-contributors">
