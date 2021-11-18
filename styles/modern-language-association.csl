@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" page-range-format="minimal-two">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="minimal-two">
   <info>
     <title>Modern Language Association 9th edition</title>
     <title-short>MLA</title-short>
     <id>http://www.zotero.org/styles/modern-language-association</id>
-    <link href="http://www.zotero.org/styles/modern-language-association" rel="self"/>
-    <link href="http://style.mla.org" rel="documentation"/>
+    <link href="http://www.zotero.org/styles/modern-language-association" rel="template"/>
     <author>
-      <name>Sebastian Karcher</name>
+      <name>Sven Hanssen</name>
+      <email>sven@scribbr.com</email>
     </author>
     <category citation-format="author"/>
     <category field="generic-base"/>
-    <summary>This style adheres to the MLA 9th edition handbook. Follows the structure of references as outlined in the MLA Manual closely</summary>
-    <updated>2021-07-13T20:05:10+00:00</updated>
+    <updated>2021-11-18T12:00:000+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
@@ -35,6 +34,16 @@
       <term name="month-11" form="short">Nov.</term>
       <term name="month-12" form="short">Dec.</term>
       <term name="translator" form="short">trans.</term>
+
+      <!-- SHORT LOCATOR FORMS -->
+      <term name="chapter" form="short">
+        <single>ch.</single>
+        <multiple>chs.</multiple>
+      </term>
+      <term name="paragraph" form="short">
+        <single>par.</single>
+        <multiple>pars.</multiple>
+      </term>
     </terms>
   </locale>
   <macro name="author">
@@ -45,6 +54,17 @@
         <names variable="editor"/>
         <names variable="translator"/>
         <text macro="title"/>
+      </substitute>
+    </names>
+  </macro>
+  <macro name="author-for-sorting">
+    <names variable="author">
+      <name name-as-sort-order="first" and="text" delimiter-precedes-last="always" delimiter-precedes-et-al="always" initialize="false" initialize-with=". "/>
+      <label form="long" prefix=", "/>
+      <substitute>
+        <names variable="editor"/>
+        <names variable="translator"/>
+        <text macro="title-for-sorting"/>
       </substitute>
     </names>
   </macro>
@@ -72,6 +92,16 @@
       </if>
       <else>
         <text variable="title" font-style="italic" text-case="title"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="title-for-sorting">
+    <choose>
+      <if variable="container-title" match="any">
+        <text variable="title" quotes="true" text-case="title" leading-noise-words="demote"/>
+      </if>
+      <else>
+        <text variable="title" font-style="italic" text-case="title" leading-noise-words="demote"/>
       </else>
     </choose>
   </macro>
@@ -293,8 +323,8 @@
   </citation>
   <bibliography hanging-indent="true" et-al-min="3" et-al-use-first="1" line-spacing="2" entry-spacing="0" subsequent-author-substitute="---">
     <sort>
-      <key macro="author"/>
-      <key variable="title"/>
+      <key macro="author-for-sorting"/>
+      <key variable="title" leading-noise-words="demote"/>
     </sort>
     <layout suffix=".">
       <group delimiter=". ">
@@ -319,6 +349,7 @@
         </group>
         <text macro="accessed"/>
       </group>
+      <text variable="note" display="block"/>
     </layout>
   </bibliography>
 </style>
