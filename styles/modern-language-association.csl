@@ -94,6 +94,11 @@
         <text variable="title" font-style="italic" text-case="title"/>
       </else>
     </choose>
+    <choose>
+      <if type="article-newspaper" match="any">
+        <text variable="publisher-place" prefix=" [" suffix="]" />
+      </if>
+    </choose>
   </macro>
   <macro name="title-for-sorting">
     <choose>
@@ -222,6 +227,13 @@
       <text variable="number"/>
     </group>
   </macro>
+  <macro name="publisher-place">
+    <choose>
+      <if type="article-newspaper" match="none">
+        <text variable="publisher-place"/>
+      </if>
+    </choose>
+  </macro>
   <macro name="publisher">
     <text variable="publisher"/>
   </macro>
@@ -337,6 +349,7 @@
           <text macro="other-contributors"/>
           <text macro="version"/>
           <text macro="number"/>
+          <text macro="publisher-place"/>
           <text macro="publisher"/>
           <text macro="publication-date"/>
           <text macro="location"/>
