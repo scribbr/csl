@@ -251,7 +251,7 @@
     </choose>
   </macro>
   <macro name="location">
-    <group delimiter=", ">
+    <group delimiter=". ">
       <group delimiter=" ">
         <label variable="page" form="short"/>
         <text variable="page"/>
